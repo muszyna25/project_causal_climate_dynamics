@@ -1,0 +1,54 @@
+# Input data path 
+path: 'data/data_renamed/'
+
+# Output data/plots path
+save_path: 'plots/'
+
+# Names of selected climate indices
+indexes:
+  - precip
+  - wc
+  - mhc
+  - enso
+
+# Number of months in each year for ERA5 reanalysis data
+nmonths: 12
+
+# E.g., May-September
+range_months:
+  - 5 # May
+  - 9 # Sept
+
+# Number of breakups for detrending function: e.g., 12 months * 10 years
+n_breakup_months: 120
+
+# Significance level for statistical testing:
+# 1) lagged cross-correlation analysis
+# 2) causal analysis, i.e. PCMCI algorithm
+significance_level: 0.05
+
+# Setting for PCMCI algorithm and CEN analysis
+tau_min: 1
+tau_max: 1
+
+# Number of bootstrap iterations
+boot_iters: 10
+
+# Coordinates for the Himalayan region and boxes of climate indices
+region:
+  - -5.0 #south
+  - 50.0 #north
+  - 45.0 #east
+  - 135.0 #west
+
+box_hp_wc: 
+  - 25.0 #south
+  - 32.0 #north
+  - 78.0 #east
+  - 93.0 #west
+
+box_mhc: 
+  - 10.0 #south
+  - 30.0 #north
+  - 70.0 #east
+  - 110.0 #west
