@@ -10,7 +10,7 @@ Requirements
 * Python >= 3.9
 * Tigramite 4.2
 
-The rest requirements can be installed by using 'requirements.txt' that may be used to create a virtual environment as follows:
+The rest of requirements can be installed by using 'requirements.txt' by creating a virtual environment as follows:
 
     $ conda create --name <env> --file <this file>
 
