@@ -6,9 +6,24 @@ This code uses a causal discovery and causal inference methods to analyse linkag
 
 Requirements
 ------------
-**Required**
+**Main requirements**
 * Python >= 3.9
+* Tigramite 4.2
 
-This file may be used to create an environment using:
+The rest requirements can be installed by using 'requirements.txt' that may be used to create a virtual environment as follows:
+
     $ conda create --name <env> --file <this file>
-platform: osx-64
+
+The code has been tested on platform: osx-64.
+
+Instructions
+------------
+To run the code you can use a jupyter notebook: 'Causal analysis of climate dynamics.ipynb'. 
+The notebook uses 'config.yml' with the basic setup for:
+* preprocessing of climate indices: 
+* plotting maps
+* statistical testing
+* lagged cross-correlation
+* causal discovery using PCMCI algorithm and causal inference implemented in Tigramite ![tigramite](https://github.com/jakobrunge/tigramite)
+* plotting causal graphs
+* bootstrapping
