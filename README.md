@@ -8,3 +8,7 @@ Requirements
 ------------
 **Required**
 * Python >= 3.9
+
+This file may be used to create an environment using:
+    $ conda create --name <env> --file <this file>
+platform: osx-64
