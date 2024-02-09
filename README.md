@@ -20,10 +20,10 @@ Instructions
 ------------
 To run the code you can use a jupyter notebook: 'Causal analysis of climate dynamics.ipynb'. 
 The notebook uses 'config.yml' with the basic setup for:
-* preprocessing of climate indices: 
+* preprocessing of climate indices 
 * plotting maps
 * statistical testing
 * lagged cross-correlation
-* causal discovery using PCMCI algorithm and causal inference implemented in Tigramite ![tigramite](https://github.com/jakobrunge/tigramite)
+* causal discovery using PCMCI algorithm and causal inference implemented in [Tigramite](https://github.com/jakobrunge/tigramite)
 * plotting causal graphs
 * bootstrapping

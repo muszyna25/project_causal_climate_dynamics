@@ -11,6 +11,25 @@ indexes:
   - mhc
   - enso
 
+# Coordinates for the Himalayan region and boxes of climate indices
+region:
+  - -5.0 #south
+  - 50.0 #north
+  - 45.0 #east
+  - 135.0 #west
+
+box_hp_wc: 
+  - 25.0 #south
+  - 32.0 #north
+  - 78.0 #east
+  - 93.0 #west
+
+box_mhc: 
+  - 10.0 #south
+  - 30.0 #north
+  - 70.0 #east
+  - 110.0 #west
+
 # Number of months in each year for ERA5 reanalysis data
 nmonths: 12
 
@@ -33,22 +52,3 @@ tau_max: 1
 
 # Number of bootstrap iterations
 boot_iters: 10
-
-# Coordinates for the Himalayan region and boxes of climate indices
-region:
-  - -5.0 #south
-  - 50.0 #north
-  - 45.0 #east
-  - 135.0 #west
-
-box_hp_wc: 
-  - 25.0 #south
-  - 32.0 #north
-  - 78.0 #east
-  - 93.0 #west
-
-box_mhc: 
-  - 10.0 #south
-  - 30.0 #north
-  - 70.0 #east
-  - 110.0 #west
