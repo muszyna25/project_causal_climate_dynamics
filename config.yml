@@ -1,5 +1,5 @@
 # Input data path 
-path: 'data/data_renamed/'
+path: 'data/'
 
 # Output data/plots path
 save_path: 'plots/'
