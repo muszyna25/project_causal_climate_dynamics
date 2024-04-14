@@ -9,6 +9,7 @@ from yaml import safe_load
 from scipy import signal
 import numpy as np
 import cartopy.crs as ccrs
+import cartopy as cart
 import matplotlib.patches as patches
 
 class DataProcessingClass:
@@ -422,4 +423,87 @@ class DataProcessingClass:
         if save == True:
             fig.savefig(self.save_path + 'climate_indices_orography' + '.png', dpi=300, bbox_inches='tight', transparent=True)
 
-   
+
+    ######################################
+    def plot_orography_map(self, save=True):
+        """plot_indices_over_orography _summary_
+
+        _extended_summary_
+
+        Parameters
+        ----------
+        save : bool, optional
+            _description_, by default True
+        """
+        
+        da = open_dataset(self.path + 'orography/era5_invariant_orog.nc')
+        print(da)
+
+        fig = plt.figure(figsize=(10,6))
+        ax = plt.axes(projection=ccrs.PlateCarree())
+
+        ax.coastlines()
+        ax.coastlines('10m')
+        ax.set_aspect('equal')    
+        ax.set_extent(self.region)
+
+        das = da.orog.where(da.orog >= 0)
+        p = das.plot(ax=ax, levels=18, robust=True, add_colorbar=False, cmap='YlOrBr')
+        da.orog.plot(ax=ax, levels=18, robust=True, transform=ccrs.PlateCarree(), add_colorbar=False, cmap='YlOrBr')
+        
+        cb = plt.colorbar(p, orientation="horizontal", pad=0.07, shrink=0.6, aspect=20, extend='max', spacing='proportional')
+        cb.set_label(label='Elevation (m)', size='large', weight='bold')
+        cb.ax.tick_params(labelsize='large')
+        
+        gl = ax.gridlines(draw_labels=True, linewidth=0.5, color='gray', alpha=0.5, zorder=115)
+        gl.xlines = True
+        gl.ylines = True
+        gl.top_labels = True
+        gl.right_labels = True
+        gl.left_labels = True
+        
+        gl.xlabel_style = {'size': 12}
+        gl.ylabel_style = {'size': 12}
+
+        ### Plot boxes over the region
+        
+        box = self.box_hp_wc
+        b = patches.Rectangle((box[2], box[0]), abs(box[2] - box[3]), abs(box[1] - box[0]), 
+                              facecolor='None', edgecolor='b', linewidth=3, linestyle='--' , zorder=102)
+        ax.add_patch(b)
+        
+        box1 = self.box_mhc
+        b1 = patches.Rectangle((box1[2], box1[0]), abs(box1[2] - box1[3]), abs(box1[1] - box1[0]), 
+                               facecolor='None', edgecolor='m', linewidth=3, linestyle='--', zorder=101)
+        ax.add_patch(b1)
+
+        ax.add_feature(cart.feature.OCEAN, zorder=100, edgecolor='k')
+
+        left, width = 0.17, 0.45
+        bottom, height = 0.25, 1.31
+        right = left + width
+        top = bottom + height
+        ax.text(0.5*(left+right), 0.5*(bottom+top), 'SMHP & RWC',
+            horizontalalignment='center',
+            verticalalignment='center',
+            fontsize=14, color='b',
+            transform=ax.transAxes, weight='bold', zorder=105)
+        
+        left1, width1 = 0.22, 0.52
+        bottom1, height1 = 0.25, 0.35
+        right1 = left1 + width1
+        top1 = bottom1 + height1
+        ax.text(0.5*(left1+right1), 0.5*(bottom1+top1), 'MHC',
+            horizontalalignment='center',
+            verticalalignment='center',
+            fontsize=14, color='m',
+            transform=ax.transAxes, weight='bold', zorder=105)
+        
+        ax.set_title('')
+
+        plt.show()
+        
+        if save == True:
+            fig.savefig(self.save_path + 'climate_indices_orography' + '.png', dpi=300, bbox_inches='tight', transparent=True)
+        
+

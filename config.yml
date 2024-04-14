@@ -12,11 +12,17 @@ indexes:
   - enso
 
 # Coordinates for the Himalayan region and boxes of climate indices
+#region:
+  # - -5.0 #south
+  # - 50.0 #north
+  # - 45.0 #east
+  # - 135.0 #west
+
 region:
-  - -5.0 #south
-  - 50.0 #north
-  - 45.0 #east
-  - 135.0 #west
+    - 112.0
+    - 68.0
+    - 4.0
+    - 34.0
 
 box_hp_wc: 
   - 25.0 #south
