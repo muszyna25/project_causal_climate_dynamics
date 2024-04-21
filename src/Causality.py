@@ -35,6 +35,7 @@ class Causality:
         self.var_names = list(D.keys())
         self.linear_mediator = None
         self.adjusted_val_matrix = None
+        self.matched_labels=None
         
         self.indexes = self.read_yaml_file()['indexes']
         self.labels = self.read_yaml_file()['labels']
@@ -90,7 +91,9 @@ class Causality:
         print(CEN_labels)
         matched_labels = [CEN_labels[k] for k in matched_indexes]
         print('matched_labels', matched_labels)
+        
         #self.var_names = matched_labels
+        self.matched_labels = matched_labels
 
         dataset = [D[k].variables[k].values for k in matched_indexes]
         indices = np.vstack(dataset).transpose()
@@ -235,13 +238,14 @@ class Causality:
         ax = fig.add_subplot(111, frame_on=False)
 
         if save: 
-            path_name = self.save_path + 'cen' + "_".join(self.var_names)
-
+            path_name = self.save_path + 'cen' + "_".join(self.matched_labels)
+            print(path_name)
+            
             # Replace negative autocorrelation path coefficients with their abs values.
             val_matrix = self.change_main_diag(val_matrix)
             self.adjusted_val_matrix = val_matrix
             
-            tp.plot_graph(graph=self.graph, val_matrix=val_matrix, var_names=self.var_names, arrow_linewidth = 12, node_size=0.6, #node_size = 0.4, 
+            tp.plot_graph(graph=self.graph, val_matrix=val_matrix, var_names=self.matched_labels, arrow_linewidth = 12, node_size=0.6, #node_size = 0.4, 
                           node_label_size = 20, link_label_fontsize = 18, figsize=(10,8), curved_radius=0.2, 
                           fig_ax=(fig,ax),
                           node_aspect=0.99, edge_ticks=0.50, node_ticks=0.2,
