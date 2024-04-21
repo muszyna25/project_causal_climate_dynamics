@@ -1,8 +1,10 @@
 # Input data path 
 path: 'data/'
 
+# add orography input data
+
 # Output data/plots path
-save_path: 'plots/'
+save_path: 'plots/paper/'
 
 # Names of selected climate indices
 indexes:
@@ -57,4 +59,11 @@ tau_min: 1
 tau_max: 1
 
 # Number of bootstrap iterations
-boot_iters: 10
+boot_iters: 40
+
+# Labels to be displayed in built CEN (note: order must be same as )
+labels: 
+  - SMHP
+  - RWC
+  - MHC
+  - ENSO

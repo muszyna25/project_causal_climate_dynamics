@@ -8,7 +8,7 @@ Requirements
 ------------
 **Main requirements**
 * Python >= 3.9
-* Tigramite 4.2
+* Tigramite >= 5.0
 
 The rest of requirements can be installed by using 'requirements.txt' by creating a virtual environment as follows:
 
