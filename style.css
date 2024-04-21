@@ -1,7 +1,4 @@
-causal_diagram[src*='#center'] {
+img[src*='#center'] {
     display: block;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    margin: auto;
 }
