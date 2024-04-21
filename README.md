@@ -1,10 +1,10 @@
 # Causal discovery of drivers of the summer Himalayan precipitation
 
-![img](plots/causal_diagram.png#center)
+![causal dgm](plots/causal_diagram.png#center)
 
 This code uses a causal discovery and causal inference methods to analyse linkages among ENSO, circulation fields, and the summer monsoon precipitation over the Himalayas.
 
-![cen](plots/cenENSO_MHC_SMHP_RWC.png)
+![cen](plots/cenENSO_MHC_SMHP_RWC.png#center)
 
 Requirements
 ------------
